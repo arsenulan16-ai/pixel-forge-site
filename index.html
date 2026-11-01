@@ -38,20 +38,34 @@
 
     </section>
 
-    <section id="android" class="hidden">
-        <h2>📱 Игры для Android</h2>
+    
+<section id="android" class="hidden">
+    <h2>📱 Игры для Android</h2>
 
-        <div class="card">
-            <h3>СИМУЛЯТОР ЧЕКУШКИ</h3>
-            <p>Версия 1.0</p>
-            <a class="download" href="https://drive.google.com/file/d/1nq1ZFomXZ_c93PTQdTsxhJvUdlCMFYBc/view?usp=drive_link" target="_blank"
-   rel="noopener noreferrer">
-                📥 Скачать APK
+    <div class="game-slider">
+        <button onclick="changeVersion(-1)">❮</button>
+
+        <div class="game-card">
+            <h2>🎮 СИМУЛЯТОР ЧЕКУШКИ</h2>
+            <h1 id="game-version">1.0</h1>
+
+            <a id="game-download"
+               class="btn"
+               href="https://drive.google.com/file/d/1nq1ZFomXZ_c93PTQdTsxhJvUdlCMFYBc/view?usp=drive_link"
+               target="_blank"
+               rel="noopener noreferrer">
+                📥 Скачать игру
             </a>
         </div>
 
-        <button onclick="showPage('home')">← Назад</button>
-    </section>
+        <button onclick="changeVersion(1)">❯</button>
+    </div>
+
+    <button onclick="showPage('home')">
+        ⬅ Назад
+    </button>
+</section>
+
 
     <section id="pc" class="hidden">
         <h2>💻 Игры для ПК</h2>
