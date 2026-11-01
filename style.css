@@ -93,3 +93,45 @@ footer {
         width: 90%;
     }
 }
+
+.game-slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin: 30px auto;
+}
+
+.game-slider > button {
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 15px;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+.game-card {
+    background: #17233d;
+    border-radius: 20px;
+    padding: 30px 15px;
+    text-align: center;
+    width: 300px;
+    max-width: 65vw;
+}
+
+.game-card h2 {
+    font-size: 20px;
+}
+
+.game-card h1 {
+    color: #60a5fa;
+    font-size: 42px;
+}
+
+.game-card .btn {
+    display: inline-block;
+    margin-top: 15px;
+}
+
