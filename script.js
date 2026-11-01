@@ -65,3 +65,42 @@ async function loadNews() {
 
 document.addEventListener("DOMContentLoaded", loadNews);
 
+const gameVersions = [
+    {
+        version: "1.0",
+        url: "https://drive.google.com/file/d/1nq1ZFomXZ_c93PTQdTsxhJvUdlCMFYBc/view?usp=drive_link"
+    },
+    {
+        version: "1.2",
+        url: ""
+    }
+];
+
+let currentVersion = 0;
+
+function changeVersion(direction) {
+    currentVersion = Math.max(
+        0,
+        Math.min(gameVersions.length - 1, currentVersion + direction)
+    );
+
+    const game = gameVersions[currentVersion];
+    const versionText = document.getElementById("game-version");
+    const downloadButton = document.getElementById("game-download");
+
+    versionText.textContent = game.version;
+
+    if (game.url) {
+        downloadButton.href = game.url;
+        downloadButton.textContent = "📥 Скачать игру";
+        downloadButton.style.pointerEvents = "auto";
+        downloadButton.style.opacity = "1";
+    } else {
+        downloadButton.removeAttribute("href");
+        downloadButton.textContent = "⏳ Версия 1.2 скоро выйдет";
+        downloadButton.style.pointerEvents = "none";
+        downloadButton.style.opacity = "0.5";
+    }
+}
+
+
