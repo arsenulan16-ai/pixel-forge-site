@@ -12,3 +12,56 @@ function unavailable() {
     alert("Ссылка на APK пока не добавлена.");
     return false;
 }
+
+async function loadNews() {
+    const newsContainer = document.getElementById("news-list");
+
+    if (!newsContainer) return;
+
+    newsContainer.textContent = "Загрузка новостей...";
+
+    try {
+        const response = await fetch(
+            "https://api.github.com/repos/arsenulan16-ai/pixel-forge-site/contents/news"
+        );
+
+        if (!response.ok) throw new Error("Ошибка загрузки");
+
+        const files = await response.json();
+        const newsFiles = files.filter(file =>
+            file.name.endsWith(".md") || file.name.endsWith(".json")
+        );
+
+        newsContainer.innerHTML = "";
+
+        for (const file of newsFiles.reverse()) {
+            const fileResponse = await fetch(file.download_url);
+            const article = await fileResponse.json();
+
+            const card = document.createElement("div");
+            card.className = "card";
+
+            const title = document.createElement("h3");
+            title.textContent = article.title || "Без названия";
+
+            const date = document.createElement("p");
+            date.textContent = article.date || "";
+
+            const text = document.createElement("p");
+            text.textContent = article.text || "";
+
+            card.append(title, date, text);
+            newsContainer.appendChild(card);
+        }
+
+        if (newsFiles.length === 0) {
+            newsContainer.textContent = "Новостей пока нет.";
+        }
+    } catch (error) {
+        newsContainer.textContent = "Не удалось загрузить новости.";
+        console.error(error);
+    }
+}
+
+document.addEventListener("DOMContentLoaded", loadNews);
+
