@@ -1,0 +1,95 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #0b1020;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+header {
+    padding: 45px 15px;
+    background: linear-gradient(135deg, #182d65, #101426);
+}
+
+header h1 {
+    color: #60a5fa;
+    font-size: 42px;
+    margin: 0;
+}
+
+header p {
+    letter-spacing: 5px;
+    color: #aab8d0;
+}
+
+main {
+    max-width: 850px;
+    margin: auto;
+    padding: 35px 20px;
+    min-height: 60vh;
+}
+
+h2 {
+    margin-top: 30px;
+}
+
+button, .download {
+    display: inline-block;
+    margin: 10px;
+    padding: 17px 25px;
+    border: none;
+    border-radius: 12px;
+    background: #2563eb;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+button:hover, .download:hover {
+    background: #3b82f6;
+    transform: scale(1.05);
+}
+
+.card {
+    margin: 20px auto;
+    padding: 25px;
+    max-width: 550px;
+    background: #19243c;
+    border-radius: 16px;
+    border: 1px solid #344563;
+}
+
+.download {
+    background: #16a34a;
+}
+
+.download:hover {
+    background: #22c55e;
+}
+
+.hidden {
+    display: none;
+}
+
+footer {
+    padding: 25px;
+    color: #94a3b8;
+}
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 30px;
+    }
+
+    button {
+        width: 90%;
+    }
+}
