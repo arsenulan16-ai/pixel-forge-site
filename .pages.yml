@@ -1,0 +1,23 @@
+
+media:
+  input: images
+  output: /images
+
+content:
+  - name: news
+    label: Новости
+    type: collection
+    path: news
+    format: json
+    fields:
+      - name: title
+        label: Заголовок
+        type: string
+        required: true
+      - name: text
+        label: Текст новости
+        type: text
+        required: true
+      - name: date
+        label: Дата
+        type: date
