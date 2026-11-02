@@ -72,7 +72,7 @@ const gameVersions = [
     },
     {
         version: "1.2",
-        url: ""
+        url: "https://drive.google.com/file/d/1r0R8MQMxCwtRNo0x8FoASi70MUiTP7CJ/view?usp=sharing"
     }
 ];
 
