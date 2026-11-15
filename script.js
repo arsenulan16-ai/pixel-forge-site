@@ -1,26 +1,23 @@
 // Функция переключения страниц
 function showPage(pageId) {
-    // Скрываем все секции
     document.querySelectorAll("main section").forEach(section => {
         section.classList.add("hidden");
     });
 
-    // Показываем нужную
     const targetSection = document.getElementById(pageId);
     if (targetSection) {
         targetSection.classList.remove("hidden");
     }
 
-    // Прокрутка наверх
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// Загрузка новостей (оставил как было, но с защитой от ошибок)
+// Загрузка новостей
 async function loadNews() {
     const newsContainer = document.getElementById("news-list");
     if (!newsContainer) return;
 
-    newsContainer.textContent = "Загрузка новостей...";
+    newsContainer.innerHTML = "<p style='color:#888;'>Сканирование сети...</p>";
 
     try {
         const response = await fetch(
@@ -30,7 +27,6 @@ async function loadNews() {
         if (!response.ok) throw new Error("Ошибка загрузки");
 
         const files = await response.json();
-        // Фильтруем только .md и .json
         const newsFiles = files.filter(file =>
             file.name.endsWith(".md") || file.name.endsWith(".json")
         );
@@ -38,22 +34,27 @@ async function loadNews() {
         newsContainer.innerHTML = "";
 
         if (newsFiles.length === 0) {
-            newsContainer.textContent = "Новостей пока нет.";
+            newsContainer.innerHTML = "<p style='color:#888;'>Данные отсутствуют.</p>";
             return;
         }
 
-        // Проходимся по файлам
-        for (const file of newsFiles.reverse()) {
+        // Берем последние 3 новости (чтобы не перегружать главную)
+        for (const file of newsFiles.reverse().slice(0, 3)) {
             try {
                 const fileResponse = await fetch(file.download_url);
                 let article;
                 
-                // Если это JSON, парсим. Если MD (просто текст), оборачиваем в объект.
                 if (file.name.endsWith('.json')) {
                     article = await fileResponse.json();
                 } else {
                     const text = await fileResponse.text();
-                    article = { title: "Новость", date: "", text: text };
+                    // Берем первую строку как заголовок для MD
+                    const lines = text.split('\n');
+                    article = { 
+                        title: lines[0].replace('#', '').trim() || "Новость", 
+                        date: "", 
+                        text: lines.slice(1).join(' ').substring(0, 150) + "..." 
+                    };
                 }
 
                 const card = document.createElement("div");
@@ -64,7 +65,7 @@ async function loadNews() {
 
                 const date = document.createElement("p");
                 date.textContent = article.date || "";
-                date.style.color = "#ff66cc";
+                date.style.color = "#ff00ff";
 
                 const text = document.createElement("p");
                 text.textContent = article.text || "";
@@ -76,12 +77,9 @@ async function loadNews() {
             }
         }
     } catch (error) {
-        newsContainer.textContent = "Не удалось загрузить новости.";
+        newsContainer.innerHTML = "<p style='color:#ff00ff;'>СБОЙ СЕТИ. НЕ УДАЛОСЬ ЗАГРУЗИТЬ ДАННЫЕ.</p>";
         console.error(error);
     }
 }
 
-// Инициализация при загрузке страницы
-document.addEventListener("DOMContentLoaded", () => {
-    loadNews();
-});
+document.addEventListener("DOMContentLoaded", loadNews);
