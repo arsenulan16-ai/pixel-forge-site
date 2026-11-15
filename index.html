@@ -2,18 +2,292 @@
 <html lang="ru">
 <head>
     <!-- ТВОЙ МЕТАТЕГ ДЛЯ GOOGLE -->
-    <meta name="google-site-verification" content="Ofsn1if4s6HBlKGZG2WeSyGdRg-GEbHkcGRlN72xNEs" />
+    <meta name="google-site-verification" content="Ofsn1if4s6HB1KGZG2WeSyGdRg-GEbHkcGR1N72xNEs" />
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PIXEL FORGE — Cyberpunk Game Studio</title>
-    <meta name="description" content="Официальный сайт студии PIXEL FORGE. Скачайте Симулятор Чекушки для Android.">
+    <meta name="description" content="Официальный сайт студии PIXEL FORGE. Скачайте наши игры для Android.">
     
-    <!-- ПОДКЛЮЧАЕМ ШРИФТЫ И НАШ НОВЫЙ CSS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* --- КИБЕРПАНК СТИЛИ --- */
+        html, body {
+            margin: 0 !important;
+            padding: 0 !important;
+            background-color: #000000 !important;
+            color: #ffffff !important;
+            font-family: 'Share Tech Mono', monospace !important;
+            text-align: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+            background-image: 
+                linear-gradient(rgba(255, 0, 85, 0.07) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 0, 85, 0.07) 1px, transparent 1px) !important;
+            background-size: 40px 40px !important;
+        }
+
+        body::before {
+            content: " ";
+            display: block;
+            position: fixed;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            z-index: 9998;
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: none;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            box-shadow: inset 0 0 150px rgba(255, 0, 85, 0.15) !important;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        header {
+            padding: 60px 15px 40px;
+            border-bottom: 2px solid #ff0055 !important;
+            background: linear-gradient(180deg, rgba(255, 0, 85, 0.1) 0%, transparent 100%) !important;
+            box-shadow: 0 0 30px rgba(255, 0, 85, 0.3) !important;
+            position: relative;
+        }
+
+        header h1 {
+            font-family: 'Orbitron', sans-serif !important;
+            color: #ffffff !important;
+            font-size: 55px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            margin: 0;
+            text-shadow: 0 0 5px #fff, 0 0 15px #ff0055, 0 0 30px #ff0055, 0 0 60px #ff0055 !important;
+        }
+
+        @keyframes glitch {
+            0% { transform: translate(0) }
+            20% { transform: translate(-2px, 2px) }
+            40% { transform: translate(-2px, -2px) }
+            60% { transform: translate(2px, 2px) }
+            80% { transform: translate(2px, -2px) }
+            100% { transform: translate(0) }
+        }
+        header h1:hover {
+            animation: glitch 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
+        }
+
+        header p {
+            font-family: 'Share Tech Mono', monospace !important;
+            letter-spacing: 12px;
+            color: #00f3ff !important;
+            font-size: 14px;
+            margin-top: 15px;
+            text-shadow: 0 0 10px #00f3ff !important;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 0 auto !important;
+            padding: 50px 20px 100px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hidden { display: none !important; }
+
+        h2 {
+            font-family: 'Orbitron', sans-serif !important;
+            color: #ffffff !important;
+            font-size: 28px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin: 40px 0 30px;
+            display: inline-block;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #00f3ff !important;
+            text-shadow: 0 0 15px #00f3ff !important;
+        }
+
+        button {
+            background: rgba(0, 0, 0, 0.8) !important;
+            color: #ff0055 !important;
+            border: 2px solid #ff0055 !important;
+            padding: 18px 45px;
+            font-family: 'Orbitron', sans-serif !important;
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.2s ease;
+            box-shadow: 0 0 15px rgba(255, 0, 85, 0.4), inset 0 0 15px rgba(255, 0, 85, 0.2) !important;
+            clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
+            letter-spacing: 2px;
+            margin: 10px;
+        }
+
+        button:hover {
+            background: #ff0055 !important;
+            color: #000000 !important;
+            box-shadow: 0 0 40px #ff0055, 0 0 80px #ff0055 !important;
+            transform: translateY(-3px) scale(1.05);
+        }
+
+        .back-btn {
+            background: transparent !important;
+            color: #00f3ff !important;
+            border: 1px solid #00f3ff !important;
+            padding: 12px 30px;
+            font-size: 14px;
+            box-shadow: 0 0 10px rgba(0, 243, 255, 0.3) !important;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 10% 100%, 0 70%);
+            margin-top: 50px;
+        }
+
+        .back-btn:hover {
+            background: #00f3ff !important;
+            color: #000000 !important;
+            box-shadow: 0 0 30px #00f3ff !important;
+        }
+
+        .game-card, .game-info-card, .download-item {
+            background: rgba(10, 10, 15, 0.9) !important;
+            border: 1px solid #333 !important;
+            border-left: 4px solid #ff0055 !important;
+            padding: 40px 30px;
+            margin: 20px auto !important;
+            max-width: 650px;
+            position: relative;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(255, 0, 85, 0.1) !important;
+            display: block;
+        }
+
+        .game-card:hover, .download-item:hover {
+            border-color: #ff0055 !important;
+            box-shadow: 0 0 30px rgba(255, 0, 85, 0.4) !important;
+            transform: translateY(-5px);
+        }
+
+        .game-card h3, .version-info h3 {
+            font-family: 'Orbitron', sans-serif !important;
+            color: #ffffff !important;
+            font-size: 24px;
+            margin: 0 0 15px 0;
+            text-shadow: 0 0 10px #fff !important;
+            line-height: 1.3;
+        }
+
+        .game-version, .version-info p {
+            color: #00f3ff !important;
+            font-size: 14px;
+            letter-spacing: 3px;
+            font-family: 'Share Tech Mono', monospace !important;
+            text-shadow: 0 0 5px #00f3ff !important;
+            margin: 0;
+        }
+
+        .description {
+            font-family: 'Share Tech Mono', monospace !important;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #cccccc !important;
+            text-align: left;
+            background: #000000 !important;
+            padding: 25px;
+            border: 1px solid #333 !important;
+            border-left: 4px solid #00f3ff !important;
+            margin: 20px 0 30px 0;
+        }
+
+        .downloads-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .download-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 30px;
+            text-align: left;
+        }
+
+        .download-btn-small {
+            background: #ff0055 !important;
+            color: #000000 !important;
+            border: none !important;
+            padding: 15px 35px;
+            font-family: 'Orbitron', sans-serif !important;
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(255, 0, 85, 0.5) !important;
+            clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%, 0 30%);
+        }
+
+        .download-btn-small:hover {
+            background: #ffffff !important;
+            box-shadow: 0 0 30px #ffffff !important;
+        }
+
+        .news-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .news-container .card {
+            background: #0a0a0c !important;
+            border: 1px solid #222 !important;
+            border-left: 4px solid #00f3ff !important;
+            padding: 20px;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .news-container h3 { 
+            color: #00f3ff !important; 
+            font-size: 18px;
+            margin: 0 0 10px 0;
+            font-family: 'Orbitron', sans-serif !important;
+            text-transform: uppercase;
+        }
+
+        .news-container p { 
+            color: #888888 !important; 
+            font-size: 14px; 
+            margin: 0;
+        }
+
+        footer {
+            padding: 30px;
+            color: #444 !important;
+            font-size: 12px;
+            letter-spacing: 4px;
+            border-top: 1px solid #111 !important;
+        }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 32px; letter-spacing: 3px; }
+            .main-buttons { flex-direction: column; gap: 10px; }
+            button { width: 100%; padding: 15px; font-size: 14px; margin: 5px 0; }
+            .download-item { flex-direction: column; gap: 15px; text-align: center; border-left: 1px solid #333 !important; border-top: 4px solid #ff0055 !important; }
+            .version-info h3, .version-info p { text-align: center; }
+            .game-info-card, .game-card { padding: 20px; }
+        }
+        
+        .main-buttons { display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; }
+    </style>
 </head>
 <body>
 
@@ -35,19 +309,29 @@
         <div id="news-list" class="news-container"></div>
     </section>
 
-    <!-- ANDROID -->
+    <!-- ANDROID (СПИСОК ИГР) -->
     <section id="android" class="page-section hidden">
         <h2>📱 ANDROID ПРИЛОЖЕНИЯ</h2>
         
-        <div class="game-card" onclick="showPage('chekushka')" style="cursor:pointer; max-width: 350px;">
-            <h3>🎮 СИМУЛЯТОР<br>ЧЕКУШКИ</h3>
-            <p class="game-version">v1.2 // ACTIVE</p>
+        <div class="main-buttons" style="flex-direction: row; flex-wrap: wrap;">
+            <!-- Игра 1 -->
+            <div class="game-card" onclick="showPage('chekushka')" style="cursor:pointer; width: 300px; margin: 10px;">
+                <h3>🎮 СИМУЛЯТОР<br>ЧЕКУШКИ</h3>
+                <p class="game-version">v1.2 // ACTIVE</p>
+            </div>
+
+            <!-- ТВОЯ НОВАЯ ИГРА -->
+            <div class="game-card" onclick="showPage('my-game')" style="cursor:pointer; width: 300px; margin: 10px;">
+                <h3>🚀 [НАЗВАНИЕ ИГРЫ]</h3>
+                <p class="game-version">v1.0 // NEW</p>
+            </div>
         </div>
 
+        <br>
         <button class="back-btn" onclick="showPage('home')">⬅ ВЫХОД В МЕНЮ</button>
     </section>
 
-    <!-- ИГРА -->
+    <!-- ИГРА 1: ЧЕКУШКА -->
     <section id="chekushka" class="page-section hidden">
         <h2>🎮 СИМУЛЯТОР ЧЕКУШКИ</h2>
         
@@ -66,7 +350,7 @@
         <button class="back-btn" onclick="showPage('android')">⬅ НАЗАД</button>
     </section>
 
-    <!-- СКАЧИВАНИЕ -->
+    <!-- СКАЧИВАНИЕ ЧЕКУШКИ -->
     <section id="downloads" class="page-section hidden">
         <h2>📥 ВЫБОР ВЕРСИИ</h2>
         <p style="color:#888; margin-bottom:30px;">> ОБНАРУЖЕНЫ ФАЙЛЫ ДЛЯ ЗАГРУЗКИ</p>
@@ -92,6 +376,44 @@
         <button class="back-btn" onclick="showPage('chekushka')">⬅ НАЗАД</button>
     </section>
 
+    <!-- ИГРА 2: ТВОЯ НОВАЯ ИГРА -->
+    <section id="my-game" class="page-section hidden">
+        <h2>🚀 [НАЗВАНИЕ ИГРЫ]</h2>
+        
+        <div class="game-info-card">
+            <p class="description">
+                > Инициализация протокола...<br>
+                > [ТУТ НАПИШИ ОПИСАНИЕ СВОЕЙ ИГРЫ]<br>
+                > Расскажи, о чем она, какие там фишки и жанр.
+            </p>
+            
+            <button onclick="showPage('my-game-downloads')" style="background: #ff0055 !important; color: #000 !important; font-size: 18px; padding: 20px 50px;">
+                📥 СКАЧАТЬ ДАННЫЕ
+            </button>
+        </div>
+
+        <button class="back-btn" onclick="showPage('android')">⬅ НАЗАД</button>
+    </section>
+
+    <!-- СКАЧИВАНИЕ НОВОЙ ИГРЫ -->
+    <section id="my-game-downloads" class="page-section hidden">
+        <h2>📥 СКАЧАТЬ ИГРУ</h2>
+        <p style="color:#888; margin-bottom:30px;">> ОБНАРУЖЕНЫ ФАЙЛЫ ДЛЯ ЗАГРУЗКИ</p>
+
+        <div class="downloads-list">
+            <div class="download-item">
+                <div class="version-info">
+                    <h3>ВЕРСИЯ 1.0</h3>
+                    <p>STABLE BUILD</p>
+                </div>
+                <!-- ТВОЯ ССЫЛКА НА ДИСК -->
+                <a href="https://drive.google.com/file/d/1QNy2AQwChAqOKEi2y2xj1Sh9zGk3M6nn/view?usp=sharing" target="_blank" class="download-btn-small">СКАЧАТЬ</a>
+            </div>
+        </div>
+
+        <button class="back-btn" onclick="showPage('my-game')">⬅ НАЗАД</button>
+    </section>
+
     <!-- PC -->
     <section id="pc" class="page-section hidden">
         <h2>💻 PC ПРИЛОЖЕНИЯ</h2>
@@ -105,6 +427,7 @@
 <footer>© 2026 PIXEL FORGE // SYSTEM ONLINE</footer>
 
 <script>
+    // Управление страницами
     function showPage(pageId) {
         var sections = document.querySelectorAll("main section");
         for (var i = 0; i < sections.length; i++) {
@@ -117,6 +440,7 @@
         window.scrollTo(0, 0);
     }
 
+    // Загрузка новостей (БЕЗ ДАТЫ)
     function loadNews() {
         var c = document.getElementById("news-list");
         if (!c) return;
