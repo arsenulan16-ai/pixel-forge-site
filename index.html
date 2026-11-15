@@ -3,131 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PIXEL FORGE — Game Studio</title>
+    <title>PIXEL FORGE — Cyberpunk Studio</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Подключаем киберпанк-шрифт -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
 
+<!-- Анимированный фон-сетка -->
+<div class="cyber-grid"></div>
+
 <header>
     <h1>⚒️ PIXEL FORGE</h1>
-    <p>GAME STUDIO</p>
+    <p>NEON GAME STUDIO</p>
 </header>
 
 <main>
     <!-- ГЛАВНАЯ СТРАНИЦА -->
     <section id="home" class="page-section">
-        <h2>Добро пожаловать!</h2>
-        <p>Официальный сайт игровой студии PIXEL FORGE</p>
+        <h2 class="cyber-title">СИСТЕМА АКТИВИРОВАНА</h2>
+        <p class="subtitle">Выберите платформу для входа в сеть</p>
 
         <div class="main-buttons">
             <button class="neon-btn" onclick="showPage('android')">
-                📱 Для телефонов
+                <span>📱 ДЛЯ ТЕЛЕФОНОВ</span>
             </button>
             <button class="neon-btn" onclick="showPage('pc')">
-                💻 Для ПК
+                <span>💻 ДЛЯ ПК</span>
             </button>
         </div>
 
-        <h2>📰 Новости PIXEL FORGE</h2>
-        <div id="news-list"></div>
+        <h2 class="cyber-title" style="margin-top: 60px; font-size: 24px;">📰 ДАННЫЕ СЕТИ</h2>
+        <div id="news-list" class="news-container"></div>
     </section>
 
-    <!-- СТРАНИЦА ANDROID (СПИСОК ИГР) -->
+    <!-- СТРАНИЦА ANDROID -->
     <section id="android" class="page-section hidden">
-        <h2>📱 Игры для Android</h2>
+        <h2 class="cyber-title">📱 ANDROID ПРИЛОЖЕНИЯ</h2>
         
         <div class="games-grid">
-            <!-- Карточка игры Симулятор Чекушки -->
             <div class="game-card" onclick="showPage('chekushka')">
+                <div class="card-glow"></div>
                 <div class="game-icon">🎮</div>
-                <h3>СИМУЛЯТОР ЧЕКУШКИ</h3>
-                <p class="game-version">Версия 1.2</p>
+                <h3>СИМУЛЯТОР<br>ЧЕКУШКИ</h3>
+                <p class="game-version">v1.2 // ACTIVE</p>
             </div>
-            <!-- Сюда вы потом сможете добавить другие игры -->
         </div>
 
-        <button class="back-btn" onclick="showPage('home')">⬅ Назад</button>
+        <button class="back-btn" onclick="showPage('home')">⬅ ВЫХОД В МЕНЮ</button>
     </section>
 
-    <!-- СТРАНИЦА ИГРЫ СИМУЛЯТОР ЧЕКУШКИ -->
+    <!-- СТРАНИЦА ИГРЫ -->
     <section id="chekushka" class="page-section hidden">
-        <h2>🎮 СИМУЛЯТОР ЧЕКУШКИ</h2>
+        <h2 class="cyber-title">🎮 СИМУЛЯТОР ЧЕКУШКИ</h2>
         
         <div class="game-info-card">
             <div class="game-banner">
-                <h3>СИМУЛЯТОР ЧЕКУШКИ</h3>
+                <h3>CHekushka_SIM.exe</h3>
             </div>
             <p class="description">
-                Игра про то, чтобы дойти до чекушки и выпить ее. 
-                Вас ждет множество скинов, уровней и веселья!
+                > Инициализация протокола...<br>
+                > Игра про то, чтобы дойти до чекушки и выпить ее.<br>
+                > Вас ждет множество скинов, уровней и веселья!
             </p>
             
-            <!-- Кнопка скачать -->
             <button class="download-btn" onclick="showPage('downloads')">
-                📥 Скачать игру
+                📥 СКАЧАТЬ ДАННЫЕ
             </button>
 
-            <!-- Дополнительные кнопки (задел на будущее) -->
             <div class="extra-buttons">
-                <button class="secondary-btn" onclick="alert('Скоро тут будут новости игры!')">📰 Новости игры</button>
-                <button class="secondary-btn" onclick="alert('Скоро тут будет галерея скинов!')">🖼️ Галерея скинов</button>
+                <button class="secondary-btn" onclick="alert('Данные засекречены!')">📰 НОВОСТИ</button>
+                <button class="secondary-btn" onclick="alert('База данных скинов пуста...')">🖼️ СКИНЫ</button>
             </div>
         </div>
 
-        <button class="back-btn" onclick="showPage('android')">⬅ Назад к играм</button>
+        <button class="back-btn" onclick="showPage('android')">⬅ НАЗАД</button>
     </section>
 
-    <!-- СТРАНИЦА СКАЧИВАНИЯ (ВЫБОР ВЕРСИИ) -->
+    <!-- СТРАНИЦА СКАЧИВАНИЯ -->
     <section id="downloads" class="page-section hidden">
-        <h2>📥 Скачать Симулятор Чекушки</h2>
-        <p>Выберите нужную версию для скачивания:</p>
+        <h2 class="cyber-title">📥 ВЫБОР ВЕРСИИ</h2>
+        <p class="subtitle">Обнаружены файлы для загрузки</p>
 
         <div class="downloads-list">
-            <!-- Версия 1.0 -->
             <div class="download-item">
                 <div class="version-info">
-                    <h3>Версия 1.0</h3>
-                    <p>Стабильная версия</p>
+                    <h3>ВЕРСИЯ 1.0</h3>
+                    <p>STABLE BUILD</p>
                 </div>
                 <a href="https://drive.google.com/file/d/1nq1ZFomXZ_c93PTQdTsxhJvUdlCMFYBc/view?usp=drive_link" 
-                   target="_blank" 
-                   rel="noopener noreferrer" 
-                   class="download-btn-small">
-                    Скачать
+                   target="_blank" rel="noopener noreferrer" class="download-btn-small">
+                    СКАЧАТЬ
                 </a>
             </div>
 
-            <!-- Версия 1.2 -->
             <div class="download-item">
                 <div class="version-info">
-                    <h3>Версия 1.2</h3>
-                    <p>Новые скины и уровни</p>
+                    <h3>ВЕРСИЯ 1.2</h3>
+                    <p>NEW SKINS & LEVELS</p>
                 </div>
                 <a href="https://drive.google.com/file/d/1r0R8MQMxCwtRNo0x8FoASi70MUiTP7CJ/view?usp=sharing" 
-                   target="_blank" 
-                   rel="noopener noreferrer" 
-                   class="download-btn-small">
-                    Скачать
+                   target="_blank" rel="noopener noreferrer" class="download-btn-small">
+                    СКАЧАТЬ
                 </a>
             </div>
         </div>
 
-        <button class="back-btn" onclick="showPage('chekushka')">⬅ Назад к игре</button>
+        <button class="back-btn" onclick="showPage('chekushka')">⬅ НАЗАД</button>
     </section>
 
     <!-- СТРАНИЦА PC -->
     <section id="pc" class="page-section hidden">
-        <h2>💻 Игры для ПК</h2>
-        <div class="card">
-            <h3>СИМУЛЯТОР ЧЕКУШКИ</h3>
-            <p>Версия для Windows</p>
-            <p class="soon-text">Скоро появится!</p>
+        <h2 class="cyber-title">💻 PC ПРИЛОЖЕНИЯ</h2>
+        <div class="game-info-card">
+            <h3 style="color: #fff; margin-top: 0;">СИМУЛЯТОР ЧЕКУШКИ</h3>
+            <p class="description">> Статус: В РАЗРАБОТКЕ...<br>> Ожидайте обновления системы.</p>
         </div>
-        <button class="back-btn" onclick="showPage('home')">⬅ Назад</button>
+        <button class="back-btn" onclick="showPage('home')">⬅ ВЫХОД В МЕНЮ</button>
     </section>
 </main>
 
-<footer>© 2026 PIXEL FORGE</footer>
+<footer>© 2026 PIXEL FORGE // SYSTEM ONLINE</footer>
 
 <script src="script.js"></script>
 </body>
