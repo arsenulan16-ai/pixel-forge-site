@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PIXEL FORGE — Cyberpunk Game Studio</title>
-    <meta name="description" content="Официальный сайт студии PIXEL FORGE. Скачайте наши игры для Android.">
+    <meta name="description" content="Официальный сайт студии PIXEL FORGE. Скачайте игры MONDO и Симулятор Чекушки для Android.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -314,15 +314,15 @@
         <h2>📱 ANDROID ПРИЛОЖЕНИЯ</h2>
         
         <div class="main-buttons" style="flex-direction: row; flex-wrap: wrap;">
-            <!-- Игра 1 -->
+            <!-- Игра 1: Чекушка -->
             <div class="game-card" onclick="showPage('chekushka')" style="cursor:pointer; width: 300px; margin: 10px;">
                 <h3>🎮 СИМУЛЯТОР<br>ЧЕКУШКИ</h3>
                 <p class="game-version">v1.2 // ACTIVE</p>
             </div>
 
-            <!-- ТВОЯ НОВАЯ ИГРА -->
+            <!-- Игра 2: MONDO -->
             <div class="game-card" onclick="showPage('my-game')" style="cursor:pointer; width: 300px; margin: 10px;">
-                <h3>🚀 [НАЗВАНИЕ ИГРЫ]</h3>
+                <h3>🚀 MONDO</h3>
                 <p class="game-version">v1.0 // NEW</p>
             </div>
         </div>
@@ -376,14 +376,14 @@
         <button class="back-btn" onclick="showPage('chekushka')">⬅ НАЗАД</button>
     </section>
 
-    <!-- ИГРА 2: ТВОЯ НОВАЯ ИГРА -->
+    <!-- ИГРА 2: MONDO -->
     <section id="my-game" class="page-section hidden">
-        <h2>🚀 [НАЗВАНИЕ ИГРЫ]</h2>
+        <h2>🚀 MONDO</h2>
         
         <div class="game-info-card">
             <p class="description">
                 > Инициализация протокола...<br>
-                > [ТУТ НАПИШИ ОПИСАНИЕ СВОЕЙ ИГРЫ]<br>
+                > ТУТ НАПИШИ ОПИСАНИЕ ИГРЫ MONDO.<br>
                 > Расскажи, о чем она, какие там фишки и жанр.
             </p>
             
@@ -395,7 +395,7 @@
         <button class="back-btn" onclick="showPage('android')">⬅ НАЗАД</button>
     </section>
 
-    <!-- СКАЧИВАНИЕ НОВОЙ ИГРЫ -->
+    <!-- СКАЧИВАНИЕ MONDO -->
     <section id="my-game-downloads" class="page-section hidden">
         <h2>📥 СКАЧАТЬ ИГРУ</h2>
         <p style="color:#888; margin-bottom:30px;">> ОБНАРУЖЕНЫ ФАЙЛЫ ДЛЯ ЗАГРУЗКИ</p>
@@ -406,7 +406,7 @@
                     <h3>ВЕРСИЯ 1.0</h3>
                     <p>STABLE BUILD</p>
                 </div>
-                <!-- ТВОЯ ССЫЛКА НА ДИСК -->
+                <!-- ССЫЛКА НА MONDO -->
                 <a href="https://drive.google.com/file/d/1QNy2AQwChAqOKEi2y2xj1Sh9zGk3M6nn/view?usp=sharing" target="_blank" class="download-btn-small">СКАЧАТЬ</a>
             </div>
         </div>
@@ -440,7 +440,7 @@
         window.scrollTo(0, 0);
     }
 
-    // Загрузка новостей (БЕЗ ДАТЫ)
+    // Загрузка новостей
     function loadNews() {
         var c = document.getElementById("news-list");
         if (!c) return;
