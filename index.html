@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -15,68 +14,116 @@
 </header>
 
 <main>
-    <section id="home">
+    <!-- ГЛАВНАЯ СТРАНИЦА -->
+    <section id="home" class="page-section">
         <h2>Добро пожаловать!</h2>
         <p>Официальный сайт игровой студии PIXEL FORGE</p>
 
-        <button onclick="showPage('android')">
-            📱 Для телефонов
-        </button>
-
-        <button onclick="showPage('pc')">
-            💻 Для ПК
-        </button>
-
-        <h2>📰 Новости студии</h2>
-        <div class="card">
-            <h3>СИМУЛЯТОР ЧЕКУШКИ v1.0</h3>
-            <p>Наша игра уже работает на Android!</p>
+        <div class="main-buttons">
+            <button class="neon-btn" onclick="showPage('android')">
+                📱 Для телефонов
+            </button>
+            <button class="neon-btn" onclick="showPage('pc')">
+                💻 Для ПК
+            </button>
         </div>
-        
-<h2>📰 Новости PIXEL FORGE</h2>
-<div id="news-list"></div>
 
+        <h2>📰 Новости PIXEL FORGE</h2>
+        <div id="news-list"></div>
     </section>
 
-    
-<section id="android" class="hidden">
-    <h2>📱 Игры для Android</h2>
-
-    <div class="game-slider">
-        <button onclick="changeVersion(-1)">❮</button>
-
-        <div class="game-card">
-            <h2>🎮 СИМУЛЯТОР ЧЕКУШКИ</h2>
-            <h1 id="game-version">1.0</h1>
-
-            <a id="game-download"
-               class="btn"
-               href="https://drive.google.com/file/d/1nq1ZFomXZ_c93PTQdTsxhJvUdlCMFYBc/view?usp=drive_link"
-               target="_blank"
-               rel="noopener noreferrer">
-                📥 Скачать игру
-            </a>
+    <!-- СТРАНИЦА ANDROID (СПИСОК ИГР) -->
+    <section id="android" class="page-section hidden">
+        <h2>📱 Игры для Android</h2>
+        
+        <div class="games-grid">
+            <!-- Карточка игры Симулятор Чекушки -->
+            <div class="game-card" onclick="showPage('chekushka')">
+                <div class="game-icon">🎮</div>
+                <h3>СИМУЛЯТОР ЧЕКУШКИ</h3>
+                <p class="game-version">Версия 1.2</p>
+            </div>
+            <!-- Сюда вы потом сможете добавить другие игры -->
         </div>
 
-        <button onclick="changeVersion(1)">❯</button>
-    </div>
+        <button class="back-btn" onclick="showPage('home')">⬅ Назад</button>
+    </section>
 
-    <button onclick="showPage('home')">
-        ⬅ Назад
-    </button>
-</section>
+    <!-- СТРАНИЦА ИГРЫ СИМУЛЯТОР ЧЕКУШКИ -->
+    <section id="chekushka" class="page-section hidden">
+        <h2>🎮 СИМУЛЯТОР ЧЕКУШКИ</h2>
+        
+        <div class="game-info-card">
+            <div class="game-banner">
+                <h3>СИМУЛЯТОР ЧЕКУШКИ</h3>
+            </div>
+            <p class="description">
+                Игра про то, чтобы дойти до чекушки и выпить ее. 
+                Вас ждет множество скинов, уровней и веселья!
+            </p>
+            
+            <!-- Кнопка скачать -->
+            <button class="download-btn" onclick="showPage('downloads')">
+                📥 Скачать игру
+            </button>
 
+            <!-- Дополнительные кнопки (задел на будущее) -->
+            <div class="extra-buttons">
+                <button class="secondary-btn" onclick="alert('Скоро тут будут новости игры!')">📰 Новости игры</button>
+                <button class="secondary-btn" onclick="alert('Скоро тут будет галерея скинов!')">🖼️ Галерея скинов</button>
+            </div>
+        </div>
 
-    <section id="pc" class="hidden">
+        <button class="back-btn" onclick="showPage('android')">⬅ Назад к играм</button>
+    </section>
+
+    <!-- СТРАНИЦА СКАЧИВАНИЯ (ВЫБОР ВЕРСИИ) -->
+    <section id="downloads" class="page-section hidden">
+        <h2>📥 Скачать Симулятор Чекушки</h2>
+        <p>Выберите нужную версию для скачивания:</p>
+
+        <div class="downloads-list">
+            <!-- Версия 1.0 -->
+            <div class="download-item">
+                <div class="version-info">
+                    <h3>Версия 1.0</h3>
+                    <p>Стабильная версия</p>
+                </div>
+                <a href="https://drive.google.com/file/d/1nq1ZFomXZ_c93PTQdTsxhJvUdlCMFYBc/view?usp=drive_link" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="download-btn-small">
+                    Скачать
+                </a>
+            </div>
+
+            <!-- Версия 1.2 -->
+            <div class="download-item">
+                <div class="version-info">
+                    <h3>Версия 1.2</h3>
+                    <p>Новые скины и уровни</p>
+                </div>
+                <a href="https://drive.google.com/file/d/1r0R8MQMxCwtRNo0x8FoASi70MUiTP7CJ/view?usp=sharing" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="download-btn-small">
+                    Скачать
+                </a>
+            </div>
+        </div>
+
+        <button class="back-btn" onclick="showPage('chekushka')">⬅ Назад к игре</button>
+    </section>
+
+    <!-- СТРАНИЦА PC -->
+    <section id="pc" class="page-section hidden">
         <h2>💻 Игры для ПК</h2>
-
         <div class="card">
             <h3>СИМУЛЯТОР ЧЕКУШКИ</h3>
             <p>Версия для Windows</p>
-            <p>Скоро появится!</p>
+            <p class="soon-text">Скоро появится!</p>
         </div>
-
-        <button onclick="showPage('home')">← Назад</button>
+        <button class="back-btn" onclick="showPage('home')">⬅ Назад</button>
     </section>
 </main>
 
