@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://arsenulan16-ai.github.io/pixel-forge-site/sitemap.xml
