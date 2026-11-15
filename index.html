@@ -3,66 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PIXEL FORGE — Cyberpunk Studio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <title>PIXEL FORGE — Cyberpunk</title>
+    <!-- Подключаем шрифты: Rajdhani (угловатый, для интерфейса) и Courier Prime (для терминала) -->
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
-        /* ПРИНУДИТЕЛЬНЫЙ КИБЕРПАНК */
-        html, body {
-            background-color: #000000 !important;
-            color: #ffffff !important;
-            font-family: 'Share Tech Mono', monospace !important;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-            overflow-x: hidden;
-            background-image: 
-                linear-gradient(rgba(255, 0, 255, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 0, 255, 0.05) 1px, transparent 1px) !important;
-            background-size: 40px 40px !important;
+        /* --- ПРИНУДИТЕЛЬНЫЙ КИБЕРПАНК СТИЛЬ --- */
+        :root {
+            --neon-pink: #ff2a6d; /* Яркий неоновый розовый */
+            --neon-blue: #05d9e8; /* Неоновый голубой */
+            --bg-black: #000000;
+            --card-bg: #0a0a0f;
         }
 
-        /* Свечение по краям */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-black) !important;
+            color: #ffffff !important;
+            font-family: 'Rajdhani', sans-serif !important;
+            text-align: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+            /* Анимированная сетка */
+            background-image: 
+                linear-gradient(rgba(255, 42, 109, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 42, 109, 0.1) 1px, transparent 1px) !important;
+            background-size: 40px 40px !important;
+            animation: gridMove 10s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 40px; }
+        }
+
+        /* Глоу-эффект по краям экрана */
         body::after {
             content: '';
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            box-shadow: inset 0 0 150px rgba(255, 0, 255, 0.2) !important;
+            box-shadow: inset 0 0 150px rgba(255, 42, 109, 0.4) !important;
             pointer-events: none;
             z-index: 9999;
         }
 
+        /* --- ШАПКА --- */
         header {
             padding: 60px 15px 40px;
-            background: linear-gradient(180deg, rgba(255,0,255,0.15) 0%, transparent 100%) !important;
-            border-bottom: 2px solid #ff00ff !important;
-            box-shadow: 0 0 30px rgba(255, 0, 255, 0.4) !important;
+            border-bottom: 2px solid var(--neon-pink) !important;
+            background: linear-gradient(180deg, rgba(255, 42, 109, 0.2) 0%, transparent 100%) !important;
+            box-shadow: 0 0 30px rgba(255, 42, 109, 0.5) !important;
+            position: relative;
         }
 
         header h1 {
-            font-family: 'Orbitron', sans-serif !important;
+            font-family: 'Rajdhani', sans-serif !important;
             color: #fff !important;
-            font-size: 50px;
-            font-weight: 900;
+            font-size: 60px;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 5px;
-            margin: 0;
+            letter-spacing: 6px;
             text-shadow: 
                 0 0 5px #fff,
-                0 0 15px #ff00ff,
-                0 0 30px #ff00ff,
-                0 0 60px #ff00ff !important;
+                0 0 15px var(--neon-pink),
+                0 0 30px var(--neon-pink),
+                0 0 60px var(--neon-pink) !important;
         }
 
         header p {
-            font-family: 'Orbitron', sans-serif !important;
+            font-family: 'Courier Prime', monospace !important;
             letter-spacing: 10px;
-            color: #00ffff !important;
-            font-size: 14px;
+            color: var(--neon-blue) !important;
+            font-size: 16px;
             margin-top: 15px;
-            text-shadow: 0 0 10px #00ffff !important;
+            text-shadow: 0 0 10px var(--neon-blue) !important;
         }
 
+        /* --- ОСНОВНОЙ КОНТЕНТ --- */
         main {
             max-width: 900px;
             margin: auto;
@@ -73,164 +95,213 @@
 
         .hidden { display: none !important; }
 
+        /* --- ЗАГОЛОВКИ РАЗДЕЛОВ --- */
         h2 {
-            font-family: 'Orbitron', sans-serif !important;
+            font-family: 'Rajdhani', sans-serif !important;
             color: #fff !important;
-            font-size: 26px;
+            font-size: 32px;
             text-transform: uppercase;
-            letter-spacing: 3px;
-            margin: 40px 0 20px;
+            letter-spacing: 4px;
+            margin: 40px 0 30px;
             display: inline-block;
             padding-bottom: 10px;
-            border-bottom: 2px solid #00ffff !important;
-            text-shadow: 0 0 10px #00ffff !important;
+            border-bottom: 3px solid var(--neon-blue) !important;
+            text-shadow: 0 0 15px var(--neon-blue) !important;
         }
 
-        /* КНОПКИ */
-        .neon-btn, button {
-            background: rgba(0, 0, 0, 0.8) !important;
-            color: #ff00ff !important;
-            border: 2px solid #ff00ff !important;
-            padding: 20px 40px;
-            font-family: 'Orbitron', sans-serif !important;
-            font-size: 18px;
+        /* --- КНОПКИ --- */
+        button, .neon-btn {
+            background: transparent !important;
+            color: var(--neon-pink) !important;
+            border: 2px solid var(--neon-pink) !important;
+            padding: 20px 50px;
+            font-family: 'Rajdhani', sans-serif !important;
+            font-size: 20px;
             font-weight: 700;
             text-transform: uppercase;
             cursor: pointer;
             position: relative;
             transition: all 0.3s ease;
-            box-shadow: 0 0 15px rgba(255, 0, 255, 0.4), inset 0 0 15px rgba(255, 0, 255, 0.2) !important;
-            clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
-            letter-spacing: 2px;
-            margin: 10px;
+            box-shadow: 0 0 15px rgba(255, 42, 109, 0.4), inset 0 0 15px rgba(255, 42, 109, 0.2) !important;
+            clip-path: polygon(15% 0, 100% 0, 100% 70%, 85% 100%, 0 100%, 0 30%);
+            letter-spacing: 3px;
+            margin: 15px;
         }
 
-        .neon-btn:hover, button:hover {
-            background: #ff00ff !important;
+        button:hover, .neon-btn:hover {
+            background: var(--neon-pink) !important;
             color: #000 !important;
-            box-shadow: 0 0 40px #ff00ff, 0 0 80px #ff00ff !important;
+            box-shadow: 0 0 40px var(--neon-pink), 0 0 80px var(--neon-pink) !important;
             transform: translateY(-5px) scale(1.05);
         }
 
-        /* КАРТОЧКИ */
-        .game-card, .card, .game-info-card, .download-item {
-            background: #0a0a0c !important;
-            border: 2px solid #2a2a35 !important;
-            padding: 30px;
+        /* Кнопка "Выход в меню" - синяя */
+        .back-btn {
+            background: transparent !important;
+            color: var(--neon-blue) !important;
+            border: 1px solid var(--neon-blue) !important;
+            padding: 12px 30px;
+            font-size: 16px;
+            box-shadow: 0 0 10px rgba(5, 217, 232, 0.3) !important;
+            clip-path: none;
+            margin-top: 40px;
+        }
+
+        .back-btn:hover {
+            background: var(--neon-blue) !important;
+            color: #000 !important;
+            box-shadow: 0 0 30px var(--neon-blue) !important;
+        }
+
+        /* --- КАРТОЧКИ ИГР И КОНТЕНТА --- */
+        .game-card, .game-info-card, .download-item {
+            background: var(--card-bg) !important;
+            border: 2px solid #222 !important;
+            padding: 40px 30px;
             margin: 20px auto;
             max-width: 700px;
             position: relative;
             transition: all 0.3s ease;
-            box-shadow: 0 0 20px rgba(255, 0, 255, 0.1) !important;
+            box-shadow: 0 0 20px rgba(255, 42, 109, 0.1) !important;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 95% 100%, 0 100%);
         }
 
         .game-card:hover, .download-item:hover {
-            border-color: #ff00ff !important;
-            box-shadow: 0 0 30px rgba(255, 0, 255, 0.5) !important;
+            border-color: var(--neon-pink) !important;
+            box-shadow: 0 0 40px rgba(255, 42, 109, 0.5) !important;
             transform: translateY(-5px);
         }
 
         .game-card h3, .version-info h3 {
-            font-family: 'Orbitron', sans-serif !important;
+            font-family: 'Rajdhani', sans-serif !important;
             color: #fff !important;
-            font-size: 20px;
-            margin-bottom: 10px;
+            font-size: 28px;
+            margin-bottom: 15px;
             text-shadow: 0 0 10px #fff !important;
+            line-height: 1.2;
         }
 
         .game-version, .version-info p {
-            color: #00ffff !important;
-            font-size: 14px;
-            letter-spacing: 2px;
-            font-family: 'Orbitron', sans-serif !important;
-            text-shadow: 0 0 5px #00ffff !important;
+            color: var(--neon-blue) !important;
+            font-size: 16px;
+            letter-spacing: 3px;
+            font-family: 'Courier Prime', monospace !important;
+            text-shadow: 0 0 10px var(--neon-blue) !important;
         }
 
-        /* КНОПКА СКАЧАТЬ */
+        /* --- КНОПКА СКАЧАТЬ --- */
         .download-btn, .download-btn-small {
-            background: transparent !important;
-            color: #ff00ff !important;
-            border: 2px solid #ff00ff !important;
-            padding: 15px 40px;
-            font-family: 'Orbitron', sans-serif !important;
-            font-size: 20px;
+            background: var(--neon-pink) !important;
+            color: #000 !important;
+            border: none !important;
+            padding: 20px 60px;
+            font-family: 'Rajdhani', sans-serif !important;
+            font-size: 22px;
             font-weight: 900;
             cursor: pointer;
             text-transform: uppercase;
             transition: all 0.3s ease;
-            box-shadow: 0 0 20px rgba(255, 0, 255, 0.5) !important;
+            box-shadow: 0 0 20px rgba(255, 42, 109, 0.6) !important;
             clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
             text-decoration: none;
             display: inline-block;
             margin-top: 20px;
+            letter-spacing: 2px;
         }
 
         .download-btn:hover, .download-btn-small:hover {
-            background: #ff00ff !important;
+            background: #fff !important;
+            box-shadow: 0 0 50px #fff !important;
             color: #000 !important;
-            box-shadow: 0 0 50px #ff00ff !important;
         }
 
-        /* ТЕКСТ ОПИСАНИЯ */
+        /* --- ТЕКСТ ОПИСАНИЯ (ТЕРМИНАЛ) --- */
         .description {
-            font-family: 'Share Tech Mono', monospace !important;
-            font-size: 16px;
-            line-height: 1.8;
+            font-family: 'Courier Prime', monospace !important;
+            font-size: 18px;
+            line-height: 2;
             color: #ccc !important;
             text-align: left;
-            background: rgba(0,0,0,0.6) !important;
-            padding: 20px;
-            border-left: 4px solid #ff00ff !important;
-            margin: 20px 0;
-        }
-
-        /* КНОПКА НАЗАД */
-        .back-btn {
-            background: transparent !important;
-            color: #00ffff !important;
-            border: 1px solid #00ffff !important;
-            padding: 10px 20px;
-            font-family: 'Orbitron', sans-serif !important;
-            cursor: pointer;
-            margin-top: 40px;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            box-shadow: 0 0 10px rgba(0, 255, 255, 0.2) !important;
-        }
-
-        .back-btn:hover {
-            background: #00ffff !important;
-            color: #000 !important;
-            box-shadow: 0 0 30px #00ffff !important;
-        }
-
-        /* НОВОСТИ */
-        .news-container .card {
-            text-align: left;
-            border-left: 4px solid #ff00ff !important;
-            max-width: 100%;
-        }
-        .news-container h3 { color: #ff00ff !important; }
-
-        footer {
+            background: #000 !important;
             padding: 30px;
-            color: #444 !important;
-            font-size: 14px;
-            letter-spacing: 4px;
-            border-top: 1px solid #222 !important;
-            font-family: 'Orbitron', sans-serif !important;
+            border-left: 4px solid var(--neon-pink) !important;
+            margin: 30px 0;
+            box-shadow: inset 0 0 30px rgba(0,0,0,0.9) !important;
         }
 
-        /* АДАПТАЦИЯ ПОД ТЕЛЕФОН */
-        @media (max-width: 600px) {
-            header h1 { font-size: 32px; letter-spacing: 2px; }
-            .main-buttons { flex-direction: column; gap: 15px; }
-            .neon-btn, button { width: 100%; padding: 15px; font-size: 16px; }
-            .download-item { flex-direction: column; gap: 15px; text-align: center; clip-path: none; }
-            .version-info h3, .version-info p { text-align: center; }
+        /* --- СПИСОК СКАЧИВАНИЯ --- */
+        .downloads-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .download-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 40px;
+            clip-path: polygon(5% 0, 100% 0, 100% 100%, 0 100%, 0 20%);
+            text-align: left;
+        }
+
+        /* --- НОВОСТИ --- */
+        .news-container {
+            max-width: 800px;
+            margin: 0 auto;
         }
         
-        .main-buttons { display: flex; justify-content: center; flex-wrap: wrap; margin-top: 30px;}
+        .news-container .card {
+            background: var(--card-bg) !important;
+            border: 1px solid #222 !important;
+            border-left: 4px solid var(--neon-pink) !important;
+            padding: 25px;
+            margin-bottom: 20px;
+            text-align: left;
+            transition: 0.3s;
+        }
+
+        .news-container .card:hover {
+            border-color: var(--neon-pink) !important;
+            box-shadow: 0 0 20px rgba(255, 42, 109, 0.3) !important;
+        }
+
+        .news-container h3 { 
+            color: var(--neon-pink) !important; 
+            font-size: 22px;
+            margin-bottom: 10px;
+            font-family: 'Rajdhani', sans-serif !important;
+            text-shadow: 0 0 5px var(--neon-pink) !important;
+        }
+
+        .news-container p { 
+            color: #999 !important; 
+            font-family: 'Courier Prime', monospace !important;
+            font-size: 16px; 
+            line-height: 1.6;
+        }
+
+        /* --- ФУТЕР --- */
+        footer {
+            padding: 40px;
+            color: #444 !important;
+            font-family: 'Courier Prime', monospace !important;
+            font-size: 14px;
+            letter-spacing: 5px;
+            border-top: 1px solid #222 !important;
+        }
+
+        /* --- АДАПТАЦИЯ ПОД ТЕЛЕФОН --- */
+        @media (max-width: 600px) {
+            header h1 { font-size: 36px; letter-spacing: 3px; }
+            .main-buttons { flex-direction: column; gap: 15px; }
+            .neon-btn, button { width: 100%; padding: 15px; font-size: 18px; margin: 5px 0; }
+            .download-item { flex-direction: column; gap: 20px; text-align: center; clip-path: none; }
+            .version-info h3, .version-info p { text-align: center; }
+            .downloads-list { padding: 0 10px; }
+        }
     </style>
 </head>
 <body>
@@ -241,15 +312,15 @@
 </header>
 
 <main>
-    <!-- ГЛАВНАЯ -->
+    <!-- ГЛАВНАЯ СТРАНИЦА -->
     <section id="home" class="page-section">
         <h2>СИСТЕМА АКТИВИРОВАНА</h2>
-        <div class="main-buttons">
+        <div class="main-buttons" style="display:flex; justify-content:center; flex-wrap:wrap;">
             <button class="neon-btn" onclick="showPage('android')">📱 ДЛЯ ТЕЛЕФОНОВ</button>
             <button class="neon-btn" onclick="showPage('pc')">💻 ДЛЯ ПК</button>
         </div>
 
-        <h2 style="margin-top: 60px;">📰 ДАННЫЕ СЕТИ</h2>
+        <h2 style="margin-top: 80px;">📰 ДАННЫЕ СЕТИ</h2>
         <div id="news-list" class="news-container"></div>
     </section>
 
@@ -257,12 +328,12 @@
     <section id="android" class="page-section hidden">
         <h2>📱 ANDROID ПРИЛОЖЕНИЯ</h2>
         
-        <div class="game-card" onclick="showPage('chekushka')" style="cursor:pointer; width: 280px;">
-            <h3>🎮 СИМУЛЯТОР ЧЕКУШКИ</h3>
+        <div class="game-card" onclick="showPage('chekushka')" style="cursor:pointer; width: 300px; margin: 0 auto;">
+            <h3>🎮 СИМУЛЯТОР<br>ЧЕКУШКИ</h3>
             <p class="game-version">v1.2 // ACTIVE</p>
         </div>
 
-        <br>
+        <br><br>
         <button class="back-btn" onclick="showPage('home')">⬅ ВЫХОД В МЕНЮ</button>
     </section>
 
@@ -282,30 +353,34 @@
             </button>
         </div>
 
+        <br>
         <button class="back-btn" onclick="showPage('android')">⬅ НАЗАД</button>
     </section>
 
     <!-- СКАЧИВАНИЕ -->
     <section id="downloads" class="page-section hidden">
         <h2>📥 ВЫБОР ВЕРСИИ</h2>
+        <p style="color:#888; font-family:'Courier Prime', monospace; margin-bottom:30px;">> ОБНАРУЖЕНЫ ФАЙЛЫ ДЛЯ ЗАГРУЗКИ</p>
 
-        <div class="download-item">
-            <div class="version-info">
-                <h3>ВЕРСИЯ 1.0</h3>
-                <p>STABLE BUILD</p>
+        <div class="downloads-list">
+            <div class="download-item">
+                <div class="version-info">
+                    <h3>ВЕРСИЯ 1.0</h3>
+                    <p>STABLE BUILD</p>
+                </div>
+                <a href="https://drive.google.com/file/d/1nq1ZFomXZ_c93PTQdTsxhJvUdlCMFYBc/view?usp=drive_link" target="_blank" class="download-btn-small">СКАЧАТЬ</a>
             </div>
-            <a href="https://drive.google.com/file/d/1nq1ZFomXZ_c93PTQdTsxhJvUdlCMFYBc/view?usp=drive_link" target="_blank" class="download-btn-small">СКАЧАТЬ</a>
+
+            <div class="download-item">
+                <div class="version-info">
+                    <h3>ВЕРСИЯ 1.2</h3>
+                    <p>NEW SKINS & LEVELS</p>
+                </div>
+                <a href="https://drive.google.com/file/d/1r0R8MQMxCwtRNo0x8FoASi70MUiTP7CJ/view?usp=sharing" target="_blank" class="download-btn-small">СКАЧАТЬ</a>
+            </div>
         </div>
 
-        <div class="download-item">
-            <div class="version-info">
-                <h3>ВЕРСИЯ 1.2</h3>
-                <p>NEW SKINS & LEVELS</p>
-            </div>
-            <a href="https://drive.google.com/file/d/1r0R8MQMxCwtRNo0x8FoASi70MUiTP7CJ/view?usp=sharing" target="_blank" class="download-btn-small">СКАЧАТЬ</a>
-        </div>
-
-        <br>
+        <br><br>
         <button class="back-btn" onclick="showPage('chekushka')">⬅ НАЗАД</button>
     </section>
 
@@ -322,35 +397,45 @@
 <footer>© 2026 PIXEL FORGE // SYSTEM ONLINE</footer>
 
 <script>
+    // Логика переключения страниц
     function showPage(pageId) {
         document.querySelectorAll("main section").forEach(s => s.classList.add("hidden"));
         document.getElementById(pageId).classList.remove("hidden");
-        window.scrollTo(0, 0);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
+    // Загрузка новостей с GitHub
     async function loadNews() {
         const c = document.getElementById("news-list");
         if(!c) return;
-        c.innerHTML = "<p style='color:#00ffff;'>Сканирование...</p>";
+        c.innerHTML = "<p style='color:#05d9e8; font-family:Courier Prime;'>Сканирование сети...</p>";
+        
         try {
             const res = await fetch("https://api.github.com/repos/arsenulan16-ai/pixel-forge-site/contents/news");
             const files = await res.json();
             const news = files.filter(f => f.name.endsWith('.md') || f.name.endsWith('.json'));
+            
             c.innerHTML = "";
-            if(news.length === 0) { c.innerHTML = "<p>Нет данных.</p>"; return; }
+            
+            if(news.length === 0) { 
+                c.innerHTML = "<p style='color:#888;'>Данные отсутствуют.</p>"; 
+                return; 
+            }
             
             for (const f of news.reverse().slice(0, 3)) {
                 const r = await fetch(f.download_url);
                 const txt = await r.text();
                 const d = document.createElement("div");
                 d.className = "card";
-                d.innerHTML = `<h3>📰 НОВОСТЬ</h3><p style="color:#aaa; font-size:14px;">${txt.substring(0, 150)}...</p>`;
+                // Берем первые 200 символов текста для превью
+                d.innerHTML = `<h3>📰 ОБНОВЛЕНИЕ СИСТЕМЫ</h3><p>${txt.substring(0, 200)}...</p>`;
                 c.appendChild(d);
             }
         } catch(e) {
-            c.innerHTML = "<p style='color:#ff00ff;'>Ошибка сети.</p>";
+            c.innerHTML = "<p style='color:#ff2a6d;'>СБОЙ СЕТИ.</p>";
         }
     }
+
     document.addEventListener("DOMContentLoaded", loadNews);
 </script>
 </body>
