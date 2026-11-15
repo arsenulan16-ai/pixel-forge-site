@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PIXEL FORGE — Cyberpunk Game Studio</title>
-    <meta name="description" content="Официальный сайт студии PIXEL FORGE. Скачайте игры MONDO и Симулятор Чекушки для Android.">
+    <meta name="description" content="Официальный сайт студии PIXEL FORGE. Скачайте игру MONDO и Симулятор Чекушки для Android.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -314,14 +314,14 @@
         <h2>📱 ANDROID ПРИЛОЖЕНИЯ</h2>
         
         <div class="main-buttons" style="flex-direction: row; flex-wrap: wrap;">
-            <!-- Игра 1: Чекушка -->
+            <!-- Игра 1 -->
             <div class="game-card" onclick="showPage('chekushka')" style="cursor:pointer; width: 300px; margin: 10px;">
                 <h3>🎮 СИМУЛЯТОР<br>ЧЕКУШКИ</h3>
                 <p class="game-version">v1.2 // ACTIVE</p>
             </div>
 
             <!-- Игра 2: MONDO -->
-            <div class="game-card" onclick="showPage('my-game')" style="cursor:pointer; width: 300px; margin: 10px;">
+            <div class="game-card" onclick="showPage('mondo')" style="cursor:pointer; width: 300px; margin: 10px;">
                 <h3>🚀 MONDO</h3>
                 <p class="game-version">v1.0 // NEW</p>
             </div>
@@ -377,17 +377,17 @@
     </section>
 
     <!-- ИГРА 2: MONDO -->
-    <section id="my-game" class="page-section hidden">
+    <section id="mondo" class="page-section hidden">
         <h2>🚀 MONDO</h2>
         
         <div class="game-info-card">
             <p class="description">
                 > Инициализация протокола...<br>
-                > ТУТ НАПИШИ ОПИСАНИЕ ИГРЫ MONDO.<br>
-                > Расскажи, о чем она, какие там фишки и жанр.
+                > Mondo это 3д игра где нужно убивать монстров и поднимать уровень.<br>
+                > Играть где угодно!
             </p>
             
-            <button onclick="showPage('my-game-downloads')" style="background: #ff0055 !important; color: #000 !important; font-size: 18px; padding: 20px 50px;">
+            <button onclick="showPage('mondo-downloads')" style="background: #ff0055 !important; color: #000 !important; font-size: 18px; padding: 20px 50px;">
                 📥 СКАЧАТЬ ДАННЫЕ
             </button>
         </div>
@@ -396,8 +396,8 @@
     </section>
 
     <!-- СКАЧИВАНИЕ MONDO -->
-    <section id="my-game-downloads" class="page-section hidden">
-        <h2>📥 СКАЧАТЬ ИГРУ</h2>
+    <section id="mondo-downloads" class="page-section hidden">
+        <h2>📥 СКАЧАТЬ MONDO</h2>
         <p style="color:#888; margin-bottom:30px;">> ОБНАРУЖЕНЫ ФАЙЛЫ ДЛЯ ЗАГРУЗКИ</p>
 
         <div class="downloads-list">
@@ -406,12 +406,12 @@
                     <h3>ВЕРСИЯ 1.0</h3>
                     <p>STABLE BUILD</p>
                 </div>
-                <!-- ССЫЛКА НА MONDO -->
+                <!-- ТВОЯ ССЫЛКА НА ДИСК -->
                 <a href="https://drive.google.com/file/d/1QNy2AQwChAqOKEi2y2xj1Sh9zGk3M6nn/view?usp=sharing" target="_blank" class="download-btn-small">СКАЧАТЬ</a>
             </div>
         </div>
 
-        <button class="back-btn" onclick="showPage('my-game')">⬅ НАЗАД</button>
+        <button class="back-btn" onclick="showPage('mondo')">⬅ НАЗАД</button>
     </section>
 
     <!-- PC -->
@@ -440,7 +440,7 @@
         window.scrollTo(0, 0);
     }
 
-    // Загрузка новостей
+    // Загрузка новостей (БЕЗ ДАТЫ)
     function loadNews() {
         var c = document.getElementById("news-list");
         if (!c) return;
